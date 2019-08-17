@@ -1,29 +1,35 @@
 # helloworld
-
-## Project setup
+一个最简单的vue + electron 模板
+## 搭建过程
+[`开发过程日志.md`](./开发过程日志.md) 记录了搭建这个模板的全过程
+## 项目安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 编译和启动 development 模式
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
+or
+```
+npm run debug 
+```
+### 打包压缩文件
+```
+npm run pack
+```
+### 编译和构建生产版本
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
+## 在此基础上如何扩展?
+目前的配置肯定还不能满足生产的需求，还需要扩展不少东西。  
+使用vue-cli等就很方便对此进程扩展, 如安装各种vue插件等，还有使用原生模块，如'ffi'等, 但目前的配置是不能完成的，还需要以后多多完善。
 
-### Lints and fixes files
-```
-npm run lint
-```
+## helloworld之后
+在此之后我还是想要完善或者说将这个项目能做成一个真正的模板，但我也算个萌新，需要寻求很多帮助，希望有兴趣的朋友能一起来玩玩。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Todo
+[ ] 完善，完善， 完善

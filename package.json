@@ -2,15 +2,64 @@
   "name": "helloworld",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "pack": "vue-cli-service build src/renderer/main.js && webpack-cli --config webpack.electron.config.js",
+    "build": "npm run pack && electron-builder",
+    "pack:dev": "vue-cli-service build src/renderer/main.js --mode development && webpack-cli --mode development --config webpack.electron.config.js",
+    "debug": "npm run pack:dev && electron .",
+    "serve": "npm run debug"
+  },
+  "build": {
+    "productName": "helloworld",
+    "appId": "nononoone.helloworld",
+    "npmRebuild": false,
+    "electronDownload": {
+      "mirror": "https://npm.taobao.org/mirrors/electron/",
+      "isVerifyChecksum": false
+    },
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "build/icons/icon.icns"
+    },
+    "win": {
+      "icon": "build/icons/icon.ico",
+      "extraResources": [
+        "./dist/**/*.dll"
+      ]
+    },
+    "linux": {
+      "icon": "build/icons"
+    }
   },
   "dependencies": {
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-service": "^3.10.0",
-    "vue-template-compiler": "^2.6.10"
+    "electron": "^6.0.2",
+    "electron-builder": "^21.2.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.3.6"
   }
 }

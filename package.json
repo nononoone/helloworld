@@ -2,13 +2,32 @@
   "name": "helloworld",
   "version": "0.1.0",
   "private": false,
-  "main": "dist/index.js",
   "scripts": {
-    "pack": "vue-cli-service build src/renderer/main.js && webpack-cli --config webpack.electron.config.js",
+    "serve": "npm run debug",
     "build": "npm run pack && electron-builder",
-    "pack:dev": "vue-cli-service build src/renderer/main.js --mode development && webpack-cli --mode development --config webpack.electron.config.js",
     "debug": "npm run pack:dev && electron .",
-    "serve": "npm run debug"
+    "pack": "vue-cli-service build && webpack-cli --config webpack.electron.config.js",
+    "pack:dev": "vue-cli-service build --mode development && webpack-cli --mode development --config webpack.electron.config.js"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "core-js": "^3.2.1",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.2",
+    "electron": "^6.0.2",
+    "electron-builder": "^21.2.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.3.6"
   },
   "build": {
     "productName": "helloworld",
@@ -51,15 +70,5 @@
     "linux": {
       "icon": "build/icons"
     }
-  },
-  "dependencies": {
-    "vue": "^2.6.10"
-  },
-  "devDependencies": {
-    "@vue/cli-service": "^3.10.0",
-    "electron": "^6.0.2",
-    "electron-builder": "^21.2.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-cli": "^3.3.6"
   }
 }

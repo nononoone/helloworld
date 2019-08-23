@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "serve": "npm run debug",
+    "serve": "npm run pack && electron .",
     "build": "npm run pack && electron-builder",
-    "debug": "npm run pack:dev && electron .",
-    "pack": "vue-cli-service build && webpack-cli --config webpack.electron.config.js",
-    "pack:dev": "vue-cli-service build --mode development && webpack-cli --mode development --config webpack.electron.config.js"
+    "dev": "node dev-startup.js",
+    "pack": "vue-cli-service build && webpack-cli --config webpack.electron.config.js"
   },
   "main": "dist/index.js",
   "dependencies": {
-    "core-js": "^3.2.1",
+    "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.1.1"
@@ -27,7 +26,8 @@
     "eslint": "^6.1.0",
     "eslint-plugin-vue": "^5.2.3",
     "vue-template-compiler": "^2.6.10",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   },
   "build": {
     "productName": "helloworld",

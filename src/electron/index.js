@@ -12,11 +12,13 @@ function createWindow () {
     }
   })
 
-  mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // 打开开发者工具
   if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools()
+    mainWindow.loadURL(`http://localhost:8080`)
+  } else {
+    mainWindow.loadURL(`file://${__dirname}/index.html`)
   }
 
   mainWindow.on('closed', () => {

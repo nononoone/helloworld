@@ -4,6 +4,7 @@
 1. [`最简框架搭建.md`](./docs/1.最简框架搭建.md) 记录了最开始搭建这个模板的过程
 2. [`添加常用插件.md`](./docs/2.添加常用插件.md) 记录了添加插件的一些过程
 3. [`恢复vue目录.md`](./docs/3.恢复vue目录.md) 恢复vue-cli的目录结构
+4. [`启用热重载(hot reload)调试.md`](./docs/4.启用热重载\调试') 使用`webpack-dev-server`实现
 ## 项目安装
 ```
 npm install
@@ -11,11 +12,11 @@ npm install
 
 ### 编译和启动 development 模式
 ```
+npm run dev 
+```
+### 编译和启动 production 模式
+```
 npm run serve
-```
-or
-```
-npm run debug 
 ```
 ### 打包压缩文件
 ```

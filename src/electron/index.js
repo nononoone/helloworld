@@ -8,10 +8,10 @@ function createWindow () {
     width: 1024,
     height: 768,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      webSecurity: false
     }
   })
-
 
   // 打开开发者工具
   if (process.env.NODE_ENV === 'development') {
